@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  host: 'https://esame-panozzo-backend.azurewebsites.net/api/',
+  endpoint: {
+    'nastri': 'nastri/',
+  }
 };

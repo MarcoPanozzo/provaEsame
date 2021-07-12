@@ -1,0 +1,66 @@
+<div class="card">
+
+    <div *ngIf="errors.length === 0">
+
+        <h1 style="text-align: center;padding: 6px;margin: 0;">Velocità</h1>
+      
+        <p-table #dt
+            [value]="velocita"
+            [lazy]="true"
+            [loading]="loading"
+            [responsive]="true"
+            (onLazyLoad)="load($event)"
+            [dataKey]="'velocitaId'">
+        
+            <ng-template pTemplate="header">
+                <tr>
+                  <th *ngFor="let col of columnsVelocita">{{col.header}}</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-velocita>
+                <tr>
+                  <td *ngFor="let col of columnsVelocita">{{col.field === "velocitaAlMin" ? velocita[col.field] + " metri/minuto" : velocita[col.field]}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                    <td>
+                        Nessun risultato
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    
+        <h1 style="text-align: center;padding: 6px;margin: 0;">Consumi</h1>
+      
+        <p-table #dt 
+            [value]="consumi"
+            [lazy]="true"
+            [loading]="loading"
+            [responsive]="true"
+            (onLazyLoad)="load($event)"
+            [dataKey]="'consumoId'">
+        
+            <ng-template pTemplate="header">
+                <tr>
+                  <th *ngFor="let col of columnsConsumi">{{col.header}}</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-consumi>
+                <tr>
+                  <td *ngFor="let col of columnsConsumi">{{col.field === "consumo" ? consumi[col.field] + " watt" : consumi[col.field]}}</td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage" let-columns>
+                <tr>
+                    <td>
+                        Nessun risultato
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+    </div>
+    
+    
+</div>
